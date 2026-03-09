@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Admin | PJ Systems</title>
+    <link rel="stylesheet" href="admin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="admin-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="logo-details">
+                <i class='bx bxl-p-j-systems'></i>
+                <span class="logo_name">PJ Admin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class='bx bx-grid-alt'></i><span class="links_name">Dashboard</span></a></li>
+                <li><a href="photography.html"><i class='bx bx-camera'></i><span class="links_name">Photography</span></a></li>
+                <li><a href="transport.html"><i class='bx bx-truck'></i><span class="links_name">Transport</span></a></li>
+                <li><a href="web_pr.html"><i class='bx bx-code-alt'></i><span class="links_name">Web Dev</span></a></li>
+                <li><a href="inventory.html"><i class='bx bx-box'></i><span class="links_name">Inventory</span></a></li>
+                <li><a href="clients.html"><i class='bx bx-user'></i><span class="links_name">Clients</span></a></li>
+                <li><a href="orders.html"><i class='bx bx-receipt'></i><span class="links_name">Orders</span></a></li>  
+                <li><a href="team.html"><i class='bx bx-group'></i><span class="links_name">Team</span></a></li>
+                <li><a href="analytics.html"><i class='bx bx-pie-chart-alt-2'></i><span class="links_name">Analytics</span></a></li>
+                <li><a href="settings.html"><i class='bx bx-cog'></i><span class="links_name">Settings</span></a></li>
+                <li class="log_out"><a href="logout.html"><i class='bx bx-log-out'></i><span class="links_name">Log out</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <nav class="top-nav">
+                <div class="sidebar-button">
+                    <i class='bx bx-menu' id="btn"></i>
+                    <style>
+                        .sidebar.collapsed { width: 60px; }
+                        .sidebar.collapsed .logo_name, .sidebar.collapsed .links_name { display: none; }
+                        .sidebar.collapsed .nav-links li a { justify-content: center; }
+                    </style>
+                </div>
+                <div class="slider-container">
+        <div class="slide active">
+            <div class="image-layer" style="background-image: url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1600');"></div>
+            <div class="content">
+            </div>
+        </div>
+    </div>
+                        <div class="logo-slider">
+                            <img src="pj systems.png" alt="PJ Systems Logo">
+                            <style>
+                                .logo-slider img {
+                                    height: 70px;
+                                    width: auto;
+                                    animation: slide 10s linear infinite;
+                                }
+                                @keyframes slide {
+                                    0% { transform: translateX(0); }
+                                    100% { transform: translateX(-100%); }
+                                }
+                            </style>
+                        </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search orders, clients...">
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="profile">
+                    <img src="https://i.pravatar.cc/40" alt="Admin">
+                   <a href="profile.html"><button class="admin-btn"><i class='bx bx-user'></i><span class="admin_name">Admin</span></button></a>
+                   <style>
+                    .admin-btn {
+                        background: none;
+                        border: none;
+                        color: #333;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+                    .admin-btn:hover {
+                        text-decoration: underline;
+                    }
+                     </style>
+                </div>
+            </nav>
+
+            <div class="dashboard-body">
+                <div class="overview-boxes">
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Total Sales</div>
+                            <div class="number">₹1,24,000</div>
+                            <div class="indicator"><i class='bx bx-up-arrow-alt'></i><span>+12%</span></div>
+                        </div>
+                        <i class='bx bx-cart-alt cart'></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Total Fleet</div>
+                            <div class="number">14 Trucks</div>
+                            <div class="indicator"><span>Active</span></div>
+                        </div>
+                        <i class='bx bx-map-pin cart two'></i>
+                    </div>
+                    <div class="box">
+                        <div class="right-side">
+                            <div class="box-topic">Active Shoots</div>
+                            <div class="number">08</div>
+                            <div class="indicator"><span>This Week</span></div>
+                        </div>
+                        <i class='bx bx-camera-movie cart three'></i>
+                    </div>
+                </div>
+
+                <div class="main-grid">
+                    <div class="chart-container">
+                        <h3>Monthly Performance</h3>
+                        <canvas id="adminChart"></canvas>
+                    </div>
+                    <div class="recent-projects">
+                        <h3>Recent Orders</h3>
+                        <table>
+                            <thead>
+                                <tr><th>Project</th><th>Service</th><th>Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Wedding Shoot</td><td>Photo</td><td><span class="badge completed">Done</span></td></tr>
+                                <tr><td>Kekri Logistics</td><td>Transport</td><td><span class="badge pending">Pending</span></td></tr>
+                                <tr><td>Dashboard Fix</td><td>Web</td><td><span class="badge active">Active</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+    <footer>
+        <p>&copy; 2026 PJ Systems. All rights reserved.</p>
+            <div class="slide" style="margin-top: 10px;"><i class='bx bxl-facebook'></i><i class='bx bxl-instagram'></i><i class='bx bxl-linkedin'></i><i class='bx bxl-twitter'></i></div>
+            <style>
+                footer {
+                    text-align: center;
+                    padding: 20px;
+                    background-color: #333;
+                    color: #fff;
+                }
+                footer .slide i {
+                    font-size: 24px;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 40px;
+                    text-align: center;
+                    background-color: #555;
+                    border-radius: 50%;
+                    margin: 0 10px;
+                    color: #fff;
+                    transition: color 0.3s;
+                }
+                footer .slide i:hover {
+                    color: #1da1f2;
+                }
+            </style>
+    </footer>
+</body>
+</html>
